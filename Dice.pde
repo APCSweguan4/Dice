@@ -1,43 +1,80 @@
 int frames = 120;
+int grandTotal = 0;
+int ones = 0;
+int twos = 0;
+int threes = 0;
+int fours = 0;
+int fives = 0;
+int sixes = 0;
+int tot = 0;
 void setup()
 {
   background(64, 64, 64);
-  size(800, 600);
+  size(800, 800);
 }
 
 void draw()
 {
   int count = 0;
+  int i = 0;
+  Die[] allDice = new Die[30];
   fill(64, 64, 64, 255);
-  rect(-50, -50, 900, 700);
+  rect(-50, -50, 900, 900);
   strokeWeight(7);
   stroke(0);
-  rect(20, 20, 760, 520, 7);
+  rect(20, 20, 760, 650, 7);
   strokeWeight(3);
   fill(#C0C0C0);
-  rect(7, 550, 785, 40, 7);
+  rect(7, 680, 785, 100, 7);
   for (int x = 100; x < 800; x += 120) {
-    for (int y = 100; y < 500; y += 120) { 
-      Die bob = new Die(x, y);
-      bob.roll();
-      bob.show();
-      count += bob.rollNum;
+    for (int y = 100; y < 700; y += 120) {
+      allDice[i] = new Die(x, y);
+      allDice[i].roll();
+      allDice[i].show();
+      count += allDice[i].rollNum;
+      i++;
     }
   }
   textSize(40);
-  if (count >= 100) {
-    text("Your total roll is " + count + "! You're lucky!", 12, 585); 
-  } else if (count <= 65) {
-    text("Your total roll is " + count + ". You're unlucky.", 12, 585);
+  if (count >= 120) {
+    text("Total: " + count + " Lucky!", 12, 720);
+  } else if (count <= 90) {
+    text("Total: " + count + " Unlucky.", 12, 720);
   } else {
-    text("Your total roll is " + count + ".", 12, 585);
+    text("Total: " + count, 12, 720);
   }
+  text("Grand Total: " + grandTotal, 400, 720);
+  textSize(20);
   frames -= 1;
   frameRate(frames);
+  text("1's: " + ones, 12, 770);
+  text("2's: " + twos, 112, 770);
+  text("3's: " + threes, 212, 770);   
+  text("4's: " + fours, 312, 770);
+  text("5's: " + fives, 412, 770);
+  text("6's: " + sixes, 512, 770);
+  text("Total Dice: " + tot, 612, 770);
   if (frames == 0) {
-   noLoop();
-   frames = 120;
-   frameRate(120);
+    noLoop();
+    for (int s = 0; s < 30; s++) {
+      if (allDice[s].rollNum == 1) {
+        ones++;
+      } else if (allDice[s].rollNum == 2) {
+        twos++;
+      } else if (allDice[s].rollNum == 3) {
+        threes++;
+      } else if (allDice[s].rollNum == 4) {
+        fours++;
+      } else if (allDice[s].rollNum == 5) {
+        fives++;
+      } else if (allDice[s].rollNum == 6) {
+        sixes++;
+      }
+    }
+    grandTotal += count;
+    frames = 120;
+    frameRate(120);
+    tot += 30;
   }
 }
 
@@ -71,8 +108,13 @@ class Die //models one single dice cube
     fill(64, 64, 64, 255);
     strokeWeight(5);
     stroke((int)((Math.random() * 106) + 150), (int)((Math.random() * 106) + 150), (int)((Math.random() * 106) + 150), 255);
-    fill(204, 204, 255, 100);
-    rect(myX - 50, myY - 50, 100, 100, 7);
+    if (rollNum == 6) {
+      fill(255, 223, 0, 150);
+      rect(myX - 50, myY - 50, 100, 100, 7);
+    } else {
+      fill(204, 204, 255, 100);
+      rect(myX - 50, myY - 50, 100, 100, 7);
+    }
     if (rollNum == 1) {
       fill(0);
       stroke(0);
