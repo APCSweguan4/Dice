@@ -40,13 +40,13 @@ void draw()
   }
   textSize(40);
   if (count >= 120) {
-    text("Total: " + count + " Lucky!", 12, 720);
+    text("Total: " + count + " Lucky!", 17, 730);
   } else if (count <= 90) {
-    text("Total: " + count + " Unlucky.", 12, 720);
+    text("Total: " + count + " Unlucky.", 17, 730);
   } else {
-    text("Total: " + count, 12, 720);
+    text("Total: " + count, 17, 730);
   }
-  text("Grand Total: " + grandTotal, 400, 720);
+  text("Grand Total: " + grandTotal, 405, 730);
   text("Roll Distribution", 837, 75);
   textSize(20);
   frames -= 1;
