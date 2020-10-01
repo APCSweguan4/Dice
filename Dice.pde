@@ -27,6 +27,7 @@ void draw()
   strokeWeight(3);
   fill(#C0C0C0);
   rect(830, 650, 330, 110, 7);
+  rect(830, 30, 330, 60, 7);
   rect(7, 680, 785, 100, 7);
   for (int x = 100; x < 800; x += 120) {
     for (int y = 100; y < 700; y += 120) {
@@ -46,6 +47,7 @@ void draw()
     text("Total: " + count, 12, 720);
   }
   text("Grand Total: " + grandTotal, 400, 720);
+  text("Roll Distribution", 837, 75);
   textSize(20);
   frames -= 1;
   frameRate(frames);
@@ -83,6 +85,64 @@ void draw()
     text("Total Avg: " + 0, 836, 680);
   } else {
     text("Total Avg: " + ((float)grandTotal / tot), 836, 680);
+  }
+  for (int n = 1; n < 7; n++) {
+    text(n, 810 + (n * 50), 620);
+  }
+  line(845, 583, 1145, 583);
+  if (ones >= 310) {
+    fill(255, 128, 0, 150);
+    strokeWeight(0);
+    rect(845, 580, 50, -ones);
+  } else {
+    fill(255, 128, 0, 150);
+    strokeWeight(0);
+    rect(845, 580, 50, -ones * 2); //ones graph line
+  }
+  if (twos >= 310) {
+    fill(255, 0, 0, 150);
+    strokeWeight(0);
+    rect(895, 580, 50, -twos);
+  } else {
+    fill(255, 0, 0, 150);
+    strokeWeight(0);
+    rect(895, 580, 50, -twos * 2); //twos graph line
+  }
+  if (threes >= 310) {
+    fill(127, 0, 255, 150);
+    strokeWeight(0);
+    rect(945, 580, 50, -threes);
+  } else {
+    fill(127, 0, 255, 150);
+    strokeWeight(0);
+    rect(945, 580, 50, -threes * 2); //threes graph line
+  }
+  if (fours >= 310) {
+    fill(0, 128, 255, 150);
+    strokeWeight(0);
+    rect(995, 580, 50, -fours);
+  } else {
+    fill(0, 128, 255, 150);
+    strokeWeight(0);
+    rect(995, 580, 50, -fours * 2); //fours graph line
+  }
+  if (fives >= 310) {
+    fill(0, 255, 0, 150);
+    strokeWeight(0);
+    rect(1045, 580, 50, -fives);
+  } else {
+    fill(0, 255, 0, 150);
+    strokeWeight(0);
+    rect(1045, 580, 50, -fives * 2); //fives graph line
+  }
+  if (sixes >= 310) {
+    fill(255, 255, 0, 150);
+    strokeWeight(0);
+    rect(1095, 580, 50, -sixes);
+  } else {
+    fill(255, 255, 0, 150);
+    strokeWeight(0);
+    rect(1095, 580, 50, -sixes * 2); //sixes graph line
   }
 }
 
