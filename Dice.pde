@@ -47,7 +47,7 @@ void draw()
     text("Total: " + count, 17, 730);
   }
   text("Grand Total: " + grandTotal, 405, 730);
-  text("Roll Distribution", 837, 75);
+  text("Roll Distribution", 847, 75);
   textSize(20);
   frames -= 1;
   frameRate(frames);
@@ -80,7 +80,7 @@ void draw()
     frameRate(120);
     tot += 30;
   }
-  textSize(15);
+  textSize(23);
   if (tot == 0) {
     text("Avg: " + 0, 836, 680);
   } else {
