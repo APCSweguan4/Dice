@@ -47,7 +47,7 @@ void draw()
     text("Total: " + count, 17, 730);
   }
   text("Grand Total: " + grandTotal, 405, 730);
-  text("Roll Distribution", 857, 75);
+  text("Roll Distribution", 855, 75);
   textSize(20);
   frames -= 1;
   frameRate(frames);
