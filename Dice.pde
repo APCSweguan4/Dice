@@ -10,7 +10,7 @@ int tot = 0;
 void setup()
 {
   background(64, 64, 64);
-  size(800, 800);
+  size(1200, 800);
 }
 
 void draw()
@@ -19,12 +19,14 @@ void draw()
   int i = 0;
   Die[] allDice = new Die[30];
   fill(64, 64, 64, 255);
-  rect(-50, -50, 900, 900);
+  rect(-50, -50, 1300, 900);
   strokeWeight(7);
   stroke(0);
   rect(20, 20, 760, 650, 7);
+  rect(820, 20, 350, 750, 7);
   strokeWeight(3);
   fill(#C0C0C0);
+  rect(830, 650, 330, 110, 7);
   rect(7, 680, 785, 100, 7);
   for (int x = 100; x < 800; x += 120) {
     for (int y = 100; y < 700; y += 120) {
@@ -47,12 +49,12 @@ void draw()
   textSize(20);
   frames -= 1;
   frameRate(frames);
-  text("1's: " + ones, 12, 770);
-  text("2's: " + twos, 112, 770);
-  text("3's: " + threes, 212, 770);   
-  text("4's: " + fours, 312, 770);
-  text("5's: " + fives, 412, 770);
-  text("6's: " + sixes, 512, 770);
+  text("1s: " + ones, 12, 770);
+  text("2s: " + twos, 112, 770);
+  text("3s: " + threes, 212, 770);   
+  text("4s: " + fours, 312, 770);
+  text("5s: " + fives, 412, 770);
+  text("6s: " + sixes, 512, 770);
   text("Total Dice: " + tot, 612, 770);
   if (frames == 0) {
     noLoop();
@@ -75,6 +77,12 @@ void draw()
     frames = 120;
     frameRate(120);
     tot += 30;
+  }
+  textSize(30);
+  if (tot == 0) {
+    text("Total Avg: " + 0, 836, 680);
+  } else {
+    text("Total Avg: " + ((float)grandTotal / tot), 836, 680);
   }
 }
 
