@@ -80,12 +80,13 @@ void draw()
     frameRate(120);
     tot += 30;
   }
-  textSize(30);
+  textSize(15);
   if (tot == 0) {
     text("Avg: " + 0, 836, 680);
   } else {
     text("Avg: " + ((float)grandTotal / tot), 836, 680);
   }
+  textSize(30);
   for (int n = 1; n < 7; n++) {
     text(n, 810 + (n * 50), 620);
   }
