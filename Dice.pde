@@ -82,9 +82,9 @@ void draw()
   }
   textSize(30);
   if (tot == 0) {
-    text("Total Avg: " + 0, 836, 680);
+    text("Avg: " + 0, 836, 680);
   } else {
-    text("Total Avg: " + ((float)grandTotal / tot), 836, 680);
+    text("Avg: " + ((float)grandTotal / tot), 836, 680);
   }
   for (int n = 1; n < 7; n++) {
     text(n, 810 + (n * 50), 620);
