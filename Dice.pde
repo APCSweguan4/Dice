@@ -89,6 +89,36 @@ void draw()
   for (int n = 1; n < 7; n++) {
     text(n, 810 + (n * 50), 620);
   }
+  if (sixes >= twos && sixes >= threes && sixes >= fours && sixes >= fives && sixes >= ones) {
+    text("Most: 6 (" + sixes + ")", 836, 715);
+  } else if (fives >= twos && fives >= threes && fives >= fours && fives >= sixes && fives >= ones) {
+    text("Most: 5 (" + fives + ")", 836, 715);
+  } else if (fours >= twos && fours >= threes && fours >= sixes && fours >= fives && fours >= ones) {
+    text("Most: 4 (" + fours + ")", 836, 715);
+  } else if (threes >= twos && threes >= fives && threes >= fours && threes >= sixes && threes >= ones) {
+    text("Most: 3 (" + threes + ")", 836, 715);
+  } else if (twos >= fives && twos >= threes && twos >= fours && twos >= sixes && twos >= ones) {
+    text("Most: 2 (" + twos + ")", 836, 715);
+  } else if (ones >= twos && ones >= fives && ones >= fours && ones >= sixes && ones >= threes) {
+    text("Most: 1 (" + ones + ")", 836, 715);
+  } else {
+    text("Most: ()", 836, 715);
+  }
+  if (ones <= twos && ones <= threes &&  ones <= fours && ones <= fives && ones <= sixes) {
+    text("Least: 1 (" + ones + ")", 836, 750);
+  } else if (twos <= ones && twos <= threes &&  twos <= fours && twos <= fives && twos <= sixes) {
+    text("Least: 2 (" + twos + ")", 836, 750);
+  } else if (threes <= ones && threes <= twos &&  threes <= fours && threes <= fives && threes <= sixes) {
+    text("Least: 3 (" + threes + ")", 836, 750);
+  } else if (fours <= ones && fours <= threes &&  fours <= twos && fours <= fives && fours <= sixes) {
+    text("Least: 4 (" + fours + ")", 836, 750);
+  } else if (fives <= ones && fives <= threes &&  fives <= fours && fives <= twos && fives <= sixes) {
+    text("Least: 5 (" + fives + ")", 836, 750);
+  } else if (sixes <= ones && sixes <= threes &&  sixes <= fours && sixes <= fives && sixes <= twos) {
+    text("Least: 6 (" + sixes + ")", 836, 750);
+  } else {
+    text("Least: ()", 836, 715);
+  }
   line(845, 583, 1145, 583);
   if (ones >= 310) {
     fill(255, 128, 0, 150);
