@@ -1,8 +1,8 @@
+int frames = 120;
 void setup()
 {
   background(64, 64, 64);
   size(800, 600);
-  noLoop();
 }
 
 void draw()
@@ -32,11 +32,23 @@ void draw()
   } else {
     text("Your total roll is " + count + ".", 12, 585);
   }
+  frames -= 1;
+  frameRate(frames);
+  if (frames == 0) {
+   noLoop();
+   frames = 120;
+   frameRate(120);
+  }
 }
 
 void mousePressed()
 {
-  redraw();
+  loop();
+}
+
+void keyPressed()
+{
+  loop();
 }
 
 class Die //models one single dice cube
